@@ -1,16 +1,5 @@
-# memory_game
-
-Memory Game in Flutter
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This is a Memory Game designed using flutter and dart for Minor Project by the following students of 21BCB-1 as a Minor Project in the 5th Semester -
+1. Sanchit Khatkar , UID-21CBT1079
+2. Amit Kumar , UID - 21CBT1084
+3. Saksham Kanwar , UID - 21CBT1080
+4. Aman Singh Rana , UID - 21CBT1079

@@ -8,6 +8,8 @@ class GameController {
   bool menuInitialActive = true;
   bool endGame = false;
 
+  
+
   void startGame() {
     if (menuInitialActive) {
       _createBoard();

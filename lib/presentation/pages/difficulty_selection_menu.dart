@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:memory_game/presentation/pages/game_view.dart';
+import 'package:community_material_icon/community_material_icon.dart';
 
 class DifficultySelectionMenu extends StatefulWidget {
   @override
@@ -12,42 +13,36 @@ class _DifficultySelectionMenuState extends State<DifficultySelectionMenu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Select Difficulty'),
-      ),
+      appBar: null,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          RadioListTile<Difficulty>(
-            title: Text('Easy'),
-            value: Difficulty.easy,
-            groupValue: _selectedDifficulty,
-            onChanged: (Difficulty? value) { // Accept nullable Difficulty
-              setState(() {
-                _selectedDifficulty = value;
-              });
-            },
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                Icon(
+                  CommunityMaterialIcons.brain,
+                  color: Colors.deepPurple,
+                  size: 100,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(
+                    "Recall: Memory Based Card Matching Game",
+                    style: TextStyle(
+                      color: Colors.deepPurple,
+                      fontSize: 17,
+                      fontFamily: "press start2p regular",
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-          RadioListTile<Difficulty>(
-            title: Text('Medium'),
-            value: Difficulty.medium,
-            groupValue: _selectedDifficulty,
-            onChanged: (Difficulty? value) { // Accept nullable Difficulty
-              setState(() {
-                _selectedDifficulty = value;
-              });
-            },
-          ),
-          RadioListTile<Difficulty>(
-            title: Text('Hard'),
-            value: Difficulty.hard,
-            groupValue: _selectedDifficulty,
-            onChanged: (Difficulty? value) { // Accept nullable Difficulty
-              setState(() {
-                _selectedDifficulty = value;
-              });
-            },
-          ),
+          _buildDifficultyButton(Difficulty.easy),
+          _buildDifficultyButton(Difficulty.medium),
+          _buildDifficultyButton(Difficulty.hard),
           ElevatedButton(
             onPressed: () {
               if (_selectedDifficulty != null) {
@@ -59,9 +54,50 @@ class _DifficultySelectionMenuState extends State<DifficultySelectionMenu> {
                 );
               }
             },
-            child: Text('Start Game'),
+            child: Text(
+              'Start Game',
+              style: TextStyle(
+                fontFamily: "press start2p regular",
+              ),
+            ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildDifficultyButton(Difficulty difficulty) {
+    bool isSelected = _selectedDifficulty == difficulty;
+
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          primary: Colors.deepPurple,
+          onPrimary: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            side: BorderSide(
+              color: isSelected ? Colors.white : Colors.transparent,
+              width: 2.0,
+            ),
+          ),
+        ),
+        onPressed: () {
+          setState(() {
+            _selectedDifficulty = difficulty;
+          });
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Text(
+            difficulty.toString().split('.').last,
+            style: TextStyle(
+              fontFamily: "press start2p regular",
+              color: Colors.white,
+            ),
+          ),
+        ),
       ),
     );
   }
